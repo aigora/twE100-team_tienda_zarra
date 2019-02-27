@@ -4,9 +4,9 @@ Tienda ZARRA.
 
 ## Integrantes del equipo
 
-Annia Pocomucha García      Anniapgarcia
+Annia Pocomucha García---------Anniapgarcia
 
-Yaiza Martín Cabrerizo      yaizamc
+Yaiza Martín Cabrerizo---------yaizamc
 
 ## Objetivos del trabajo
 

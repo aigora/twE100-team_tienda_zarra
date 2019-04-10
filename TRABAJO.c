@@ -1,5 +1,7 @@
-//Simulaci�n de una visita a una tienda de ropa.
-//Grupo N06
+// Simulación de una visita a una tienda de ropa.
+// Grupo N06
+// Annia Pocomucha García
+// Yaiza Martín CAbrerizo
 
 
 #include <stdio.h>
@@ -60,7 +62,7 @@ main()
 	int x_entero;	//Para el dinero (dos cifras)
 	char opcion;	//opcion comprar o devolver
 	char volver;	//opcion volver a empezar
-	char masmas;	//opcion volver a empezar (pero no tienes que introducir el efectivo m�s veces)
+	char masmas;	//opcion volver a empezar (pero no tienes que introducir el efectivo más veces)
 	char de; 		//opcion de devolucion (camiseta o pantalon o sudadera)
 	char masde;		//opcion de devolver mas cosas
 	char co;		//opcion de comprar (camiseta o pantalon o sudadera)
@@ -81,12 +83,12 @@ main()
 	char nuevosocio; //Querer ser socio o no
 	int j;			//Indice para leer socios
 	int dimension;	//Leer la cantidad de socios
-	int dimen;		//Indica a la memoria dinamica el tama�o del vector
+	int dimen;		//Indica a la memoria dinamica el tamaño del vector
 	int orden;		//Para comparar los socios con los socios nuevos si son iguales
 	int a;			//Indice para recorrer los socios y comparar
 	int anadir;		//Si es ==0 no hay socios repetidos
 	int annadir;
-	char intento;	//Si al a�adir socio da error, intentarlo otra vez
+	char intento;	//Si al añadir socio da error, intentarlo otra vez
 	float descuento=0.15;
 	float iva=0.21;
 	float ivas;
@@ -216,16 +218,16 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (v[nn].s==1)
 									{
 										if (de=='p'|| de=='P')
-										printf("\n\nAhora tenemos %d pantal\242n de talla %c.", v[nn].s, talla);
+										printf("\n\nQuedan %d pantal\242n de talla %c en stock.", v[nn].s, talla);
 										else
-										printf("\nAhora tenemos %d %s de talla %c.", v[nn].s,pd, talla);
+										printf("\nQuedan %d %s de talla %c en stock.", v[nn].s,pd, talla);
 									}
 									else
 									{
 										if (de=='p'|| de=='P')
-										printf("\n\nAhora tenemos %d %ses  de talla %c.", v[nn].s, pd, talla);
+										printf("\n\nQuedan %d %ses  de talla %c en stock.", v[nn].s, pd, talla);
 										else
-										printf("\n\nAhora tenemos %d %ss de talla %c.", v[nn].s,pd, talla);
+										printf("\n\nQuedan %d %ss de talla %c en stock.", v[nn].s,pd, talla);
 									}
 									
 									
@@ -241,16 +243,16 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (v[nn].m==1)
 									{
 										if (de=='p'|| de=='P')
-										printf("\n\nAhora tenemos %d pantal\242n de talla %c.", v[nn].m, talla);
+										printf("\n\nQuedan %d pantal\242n de talla %c en stock.", v[nn].m, talla);
 										else
-										printf("\n\nAhora tenemos %d %s de talla %c.", v[nn].m,pd, talla);
+										printf("\n\nQuedan %d %s de talla %c en stock.", v[nn].m,pd, talla);
 									}
 									else
 									{
 										if (de=='p'|| de=='P')
-										printf("\n\nAhora tenemos %d %ses  de talla %c.", v[nn].m, pd, talla);
+										printf("\n\nQuedan %d %ses  de talla %c en stock.", v[nn].m, pd, talla);
 										else
-										printf("\n\nAhora tenemos %d %ss de talla %c.", v[nn].m,pd, talla);
+										printf("\n\nQuedan %d %ss de talla %c en stock.", v[nn].m,pd, talla);
 									}
 									
 									
@@ -266,16 +268,16 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (v[nn].l==1)
 									{
 										if (de=='p'|| de=='P')
-										printf("\n\nAhora tenemos %d pantal\242n de talla %c.", v[nn].l, talla);
+										printf("\n\nQuedan %d pantal\242n de talla %c en stock.", v[nn].l, talla);
 										else
-										printf("\n\nAhora tenemos %d %s de talla %c.", v[nn].l,pd, talla);
+										printf("\n\nQuedan %d %s de talla %c en stock.", v[nn].l,pd, talla);
 									}
 									else
 									{
 										if (de=='p'|| de=='P')
-										printf("\n\nAhora tenemos %d %ses  de talla %c.", v[nn].l, pd, talla);
+										printf("\n\nQuedan %d %ses  de talla %c en stock.", v[nn].l, pd, talla);
 										else
-										printf("\n\nAhora tenemos %d %ss de talla %c.", v[nn].l,pd, talla);
+										printf("\n\nQuedan %d %ss de talla %c en stock.", v[nn].l,pd, talla);
 									}
 									
 									
@@ -570,7 +572,7 @@ switch (socio)
 //CODIGO PARA LEER LOS SOCIOS
 		cargardimension(&dimension);
 		
-		//Se pone el tama�o del vector
+		//Se pone el tamaño del vector
 		u=malloc(dimension*sizeof(socia));
 					
 		cargarsocios(dimension, u);								
@@ -622,7 +624,7 @@ switch (socio)
 								
 								if (annadir ==0)
 								{				
-								printf("\nEl usuario o la contrase�a es incorrecta.");				
+								printf("\nEl usuario o la contraseña es incorrecta.");				
 								printf("\n\250Desea intentarlo otra vez?\n");							
 								scanf ("%c", &intento);
 								fflush (stdin);
@@ -655,7 +657,7 @@ switch (socio)
 														
 									cargardimension(&dimension);
 									
-									//Se pone el tama�o del vector
+									//Se pone el tamaño del vector
 									dimen=dimension+1;
 									u=malloc(dimen*sizeof(socia));	
 										
@@ -718,7 +720,7 @@ switch (socio)
 									descuentos(w0, w1, w2, camiseta, pantalon, sudadera, ivas, descuento, ticket);
 	
 									
-//Guardar socios a�adidos									
+//Guardar socios añadidos									
 guardarsocios(dimension, u);
 						
 								}		

@@ -1,5 +1,4 @@
 // Simulación de una visita a una tienda de ropa.
-// Grupo N06
 // Annia Pocomucha García
 // Yaiza Martín Cabrerizo
 

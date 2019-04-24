@@ -53,7 +53,7 @@ float cargarsocios(int a, socia *u);
 void guardarsocios(int a, socia *u);
 
 
-main()
+int main()
 {
 
 	double dinero;
@@ -96,7 +96,6 @@ main()
 	int nn; 		//para saber si es camiseta, pantalon o sudadera
 	int cantidad;	//numero de prendas que quieres llevarte
 	
-	
 
 //Miembros de las estructuras
 ropa *v;
@@ -129,7 +128,7 @@ do{
 
 banner();
 
-				
+		
 	printf ("\n\n\250De cu\240nto dinero dispone para gastar en nuestra tienda\77 \n");
 
 do{
@@ -545,7 +544,7 @@ free (pd);
 if (ticket!=0)
 {
 		
-				printf ("\nLleva usted:\n");					
+				printf ("\nCESTA DE LA COMPRA:\n");					
 					
 					ticketfinal(w0, w1, w2, camiseta, pantalon, sudadera);
 					

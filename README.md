@@ -1,6 +1,6 @@
 ## Tienda ZARRRA.
 
-Tienda donde se puede comprar o devolver: pantalones, camisetas y sudaderas de las tallas S, M, L. Ofrece la posibilidad de hacerte socio de la tienda y adquirir un descuento del 10% en tu comprar.
+Tienda donde se puede comprar o devolver: pantalones, camisetas y sudaderas de las tallas S, M, L. Ofrece la posibilidad de hacerte socio de la tienda y adquirir un descuento del 15% en tu comprar.
 Imprime un ticket en cual figura las prendas compradas y el descuento, solo si eres socio, aplicado al coste final.
 
 ## Integrantes del equipo

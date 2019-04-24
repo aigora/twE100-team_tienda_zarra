@@ -1,6 +1,6 @@
-// Simulación de una visita a una tienda de ropa.
-// Annia Pocomucha García
-// Yaiza Martín Cabrerizo
+// Tienda de ropa online.
+// Annia Pocomucha García	54
+// Yaiza Martín Cabrerizo	54283
 
 
 #include <stdio.h>

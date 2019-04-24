@@ -1,6 +1,6 @@
-// SimulaciÃ³n de una visita a una tienda de ropa.
-// Annia Pocomucha GarcÃ­a
-// Yaiza MartÃ­n Cabrerizo
+// Simulación de una visita a una tienda de ropa.
+// Annia Pocomucha García
+// Yaiza Martín Cabrerizo
 
 
 #include <stdio.h>
@@ -55,13 +55,14 @@ void guardarsocios(int a, socia *u);
 
 main()
 {
+
 	double dinero;
 	int d;
 	float x;		//Para el dinero (dos cifras)
 	int x_entero;	//Para el dinero (dos cifras)
 	char opcion;	//opcion comprar o devolver
 	char volver;	//opcion volver a empezar
-	char masmas;	//opcion volver a empezar (pero no tienes que introducir el efectivo mÃ¡s veces)
+	char masmas;	//opcion volver a empezar (pero no tienes que introducir el efectivo más veces)
 	char de; 		//opcion de devolucion (camiseta o pantalon o sudadera)
 	char masde;		//opcion de devolver mas cosas
 	char co;		//opcion de comprar (camiseta o pantalon o sudadera)
@@ -82,12 +83,12 @@ main()
 	char nuevosocio; //Querer ser socio o no
 	int j;			//Indice para leer socios
 	int dimension;	//Leer la cantidad de socios
-	int dimen;		//Indica a la memoria dinamica el tamaÃ±o del vector
+	int dimen;		//Indica a la memoria dinamica el tamaño del vector
 	int orden;		//Para comparar los socios con los socios nuevos si son iguales
 	int a;			//Indice para recorrer los socios y comparar
 	int anadir;		//Si es ==0 no hay socios repetidos
 	int annadir;
-	char intento;	//Si al aÃ±adir socio da error, intentarlo otra vez
+	char intento;	//Si al añadir socio da error, intentarlo otra vez
 	float descuento=0.15;
 	float iva=0.21;
 	float ivas;
@@ -128,11 +129,11 @@ do{
 
 banner();
 
-							
+				
 	printf ("\n\n\250De cu\240nto dinero dispone para gastar en nuestra tienda\77 \n");
 
 do{
-	printf ("\n(Debe insertar una cifra positiva con menos de dos cifras decimales\n");
+	printf ("\n(Debe insertar una cifra positiva con menos de dos cifras decimales)\n\n");
 	scanf ("%lf", &dinero);
 	fflush (stdin);
 	
@@ -151,7 +152,7 @@ do{
 			}
 		else
 			{			
-			printf ("\nSu saldo es de %.2f$", dinero);
+			printf ("\n\nSu saldo es de %.2f$", dinero);
 			d=1;
 			}
 				
@@ -160,9 +161,9 @@ do{
 do{
 
 printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
-	printf ("\tD - Devoluci\242n\n");
-	printf ("\tC - Compra\n");
-	printf ("\tS - Salir de la tienda\n");
+	printf ("\tD - Devoluci\242n\n\n");
+	printf ("\tC - Compra\n\n");
+	printf ("\tS - Salir de la tienda\n\n");
 	
 	scanf("%c", &opcion);
 	fflush (stdin);
@@ -173,7 +174,7 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 		case 'd':
 			do{
 			
-			printf ("\250Qu\202 desea devolver?\n");			
+			printf ("\250Qu\202 desea devolver?\n\n");			
 			
 				de=opciones();
 					
@@ -324,7 +325,7 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 
 				do
 				{
-				printf ("\n\250Qu\202 desea comprar?\n");
+				printf ("\n\250Qu\202 desea comprar?\n\n");
 				
 				co=opciones();
 				
@@ -356,7 +357,7 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 							
 							if (co=='c'|| co=='C'|| co=='p'|| co=='P'|| co=='s'|| co=='S')
 							{
-							printf ("\n\250De que talla quiere su %s?\n",pd);
+							printf ("\n\250De que talla quiere su %s?\n\n",pd);
 									printf ("\tS \t");
 									printf ("\tM \t");
 									printf ("\tL \n");
@@ -369,10 +370,9 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 																			
 									else									
 									{
-										printf ("\n\250Cu\240ntas unidades desea llevar?");
+										printf ("\n\250Cu\240ntas unidades desea llevar?\t\t");
 										do
-										{
-										printf ("\n(Debe ser un n\243mero positivo)\n");
+										{								
 										scanf("%d", &cantidad);
 										fflush (stdin);
 										}while (cantidad<=0);
@@ -423,10 +423,9 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									printf ("\nNo quedan prendas de esta talla.");
 									else
 									{
-										printf ("\n\250Cu\240ntas unidades desea llevar?");
+										printf ("\n\250Cu\240ntas unidades desea llevar?\t\t");
 										do
-										{
-										printf ("\n\(Debe ser un n\243mero positivo)\n");
+										{								
 										scanf("%d", &cantidad);
 										fflush (stdin);
 										}while (cantidad<=0);
@@ -476,10 +475,9 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 										printf ("\nNo quedan prendas de esta talla.");
 									else
 									{
-										printf ("\n\250Cu\240ntas unidades desea llevar?");
+										printf ("\n\250Cu\240ntas unidades desea llevar?\t\t");
 										do
-										{
-										printf ("\n\(Debe ser un n\243mero positivo)\n");
+										{									
 										scanf("%d", &cantidad);
 										fflush (stdin);
 										}while (cantidad<=0);
@@ -534,7 +532,7 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 					
 				
 				
-				printf ("\n\250Desea coger otro art\241culo?\n");
+				printf ("\n\n\250Desea coger otro art\241culo?\n");
 				scanf ("%c", &mascom);
 				fflush (stdin);				
 	
@@ -571,7 +569,7 @@ switch (socio)
 //CODIGO PARA LEER LOS SOCIOS
 		cargardimension(&dimension);
 		
-		//Se pone el tamaÃ±o del vector
+		//Se pone el tamaño del vector
 		u=malloc(dimension*sizeof(socia));
 					
 		cargarsocios(dimension, u);								
@@ -623,7 +621,7 @@ switch (socio)
 								
 								if (annadir ==0)
 								{				
-								printf("\nEl usuario o la contraseÃ±a es incorrecta.");				
+								printf("\nEl usuario o la contraseña es incorrecta.");				
 								printf("\n\250Desea intentarlo otra vez?\n");							
 								scanf ("%c", &intento);
 								fflush (stdin);
@@ -656,7 +654,7 @@ switch (socio)
 														
 									cargardimension(&dimension);
 									
-									//Se pone el tamaÃ±o del vector
+									//Se pone el tamaño del vector
 									dimen=dimension+1;
 									u=malloc(dimen*sizeof(socia));	
 										
@@ -719,7 +717,7 @@ switch (socio)
 									descuentos(w0, w1, w2, camiseta, pantalon, sudadera, ivas, descuento, ticket);
 	
 									
-//Guardar socios aÃ±adidos									
+//Guardar socios añadidos									
 guardarsocios(dimension, u);
 						
 								}		
@@ -1113,6 +1111,4 @@ for (i=0; i<a; i++)
 fclose(pf);
 
 }
-
-
 

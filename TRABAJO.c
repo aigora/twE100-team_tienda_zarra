@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <windows.h>
 #define A 3
 #define B 1
 
@@ -96,6 +97,10 @@ int main()
 	int nn; 		//para saber si es camiseta, pantalon o sudadera
 	int cantidad;	//numero de prendas que quieres llevarte
 	
+	//Colores
+	HANDLE  hConsole;
+	int k;
+  	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 //Miembros de las estructuras
 ropa *v;
@@ -127,12 +132,11 @@ cargarstock( &v[0], &v[1], &v[2]);
 do{
 
 banner();
-
-		
-	printf ("\n\n\250De cu\240nto dinero dispone para gastar en nuestra tienda\77 \n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+	printf ("\n\n\250De cu\240nto dinero dispone para gastar en nuestra tienda\77 \n\n");
 
 do{
-	printf ("\n(Debe insertar una cifra positiva con menos de dos cifras decimales)\n\n");
+	
 	scanf ("%lf", &dinero);
 	fflush (stdin);
 	
@@ -140,18 +144,23 @@ do{
 		x_entero = x;	
 		
 		if (x - x_entero)
-			{	
+			{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);	
 			printf ("\nIntentelo otra vez.\n");
 			d=0;
 			}
 		else if (dinero < 0)
-			{		
+			{	
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);	
 			printf ("\nIntentelo otra vez.\n");
 			d=0;
 			}
 		else
-			{			
-			printf ("\n\nSu saldo es de %.2f$", dinero);
+			{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);			
+			printf ("\nSu saldo es de");
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+			printf ("\t%.2f$", dinero);
 			d=1;
 			}
 				
@@ -159,10 +168,20 @@ do{
 
 do{
 
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
-	printf ("\tD - Devoluci\242n\n\n");
-	printf ("\tC - Compra\n\n");
-	printf ("\tS - Salir de la tienda\n\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+	printf ("\tD -");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+	printf ("Devoluci\242n\n\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+	printf ("\tC -");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+	printf ("Compra\n\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+	printf ("\tS -");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+	printf ("Salir de la tienda\n\n");
 	
 	scanf("%c", &opcion);
 	fflush (stdin);
@@ -203,10 +222,12 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 							
 							if (de=='c'|| de=='C'||de=='p'|| de=='P'||de=='s'|| de=='S')
 							{												
-							printf ("\n\250De que talla es su %s?\n",pd);
+							printf ("\n\250De que talla es su %s?\n\n",pd);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
 									printf ("\tS \t");
 									printf ("\tM \t");
 									printf ("\tL \n");
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);		
 							scanf ("%c", &talla);
 							fflush (stdin);
 								
@@ -217,8 +238,10 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (v[nn].s==1)
 									{
 										if (de=='p'|| de=='P')
+										{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 										printf("\n\nQuedan %d pantal\242n de talla %c en stock.", v[nn].s, talla);
-										else
+										}else
 										printf("\nQuedan %d %s de talla %c en stock.", v[nn].s,pd, talla);
 									}
 									else
@@ -231,8 +254,11 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									
 									
 									dinero+=precio;
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 									printf ("\n\nSe le ha devuelto el importe de la prenda.");
-									printf ("\n\nSu dinero es ahora de %.2f$", dinero);
+									printf ("\n\nSu dinero es ahora de ");
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+									printf ("%.2f$", dinero);
 									}
 								
 								else if (talla=='m' || talla == 'M')
@@ -256,8 +282,11 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									
 									
 									dinero+=precio;
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 									printf ("\n\nSe le ha devuelto el importe de la prenda.");
-									printf ("\n\nSu dinero es ahora de %.2f$", dinero);
+									printf ("\n\nSu dinero es ahora de ");
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+									printf ("%.2f$", dinero);
 									}
 								
 								else if (talla=='l' || talla == 'L')
@@ -281,11 +310,15 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									
 									
 									dinero+=precio;
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 									printf ("\n\nSe le ha devuelto el importe de la prenda.");
-									printf ("\n\nSu dinero es ahora de %.2f$", dinero);
+									printf ("\n\nSu dinero es ahora de ");
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+									printf ("%.2f$", dinero);
 									}
 								else
 									{
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 									printf ("\n\nTalla err\242nea.");
 									printf ("\n\nNo podemos realizar la devoluci\242n.");
 									}	
@@ -297,9 +330,13 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 								
 						}
 						else
-						puts ("\n\n Opci\242n err\242nea.");
+						{
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
+							puts ("\n\n Opci\242n err\242nea.");	
+						}
+						
 				
-				
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 				printf ("\n\n\250Desea devolver otro art\241culo?\n");
 				scanf ("%c", &masde);	
 				fflush (stdin);
@@ -324,6 +361,7 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 
 				do
 				{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 				printf ("\n\250Qu\202 desea comprar?\n\n");
 				
 				co=opciones();
@@ -357,18 +395,23 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 							if (co=='c'|| co=='C'|| co=='p'|| co=='P'|| co=='s'|| co=='S')
 							{
 							printf ("\n\250De que talla quiere su %s?\n\n",pd);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
 									printf ("\tS \t");
 									printf ("\tM \t");
 									printf ("\tL \n");
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 							scanf ("%c", &talla);
 							fflush (stdin);
 								if (talla=='s' || talla == 'S')
 								{
 									if (v[nn].s == 0)
+									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 										printf ("\nNo quedan prendas de esta talla.");
-																			
+							   		}
 									else									
 									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 										printf ("\n\250Cu\240ntas unidades desea llevar?\t\t");
 										do
 										{								
@@ -377,7 +420,10 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 										}while (cantidad<=0);
 									
 									if (v[nn].s-cantidad<0)
+									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 										printf ("\n\nLo sentimos, no disponemos de esa cantidad de prendas.");
+									}
 									else
 									{
 									
@@ -389,9 +435,10 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (w[nn].s==1)
 									{
 										if (co=='p'|| co=='P')
+										{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 										printf("\nHa elegido %d pantal\242n de talla %c.", w[nn].s, talla);
-										else
-										printf("\nHa elegido %d %s de talla %c.", w[nn].s, pd, talla);
+										}else printf("\nHa elegido %d %s de talla %c.", w[nn].s, pd, talla);
 									}
 									
 									else
@@ -407,7 +454,8 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									w0=w[0].s+w[0].m+w[0].l;
 									w1=w[1].s+w[1].m+w[1].l;
 									w2=w[2].s+w[2].m+w[2].l;
-									printf("\n\nLleva en su cesta: \n\t%d camiseta/s \n\t%d pantal\242n/es  \n\t%d sudadera/s.", w0, w1, w2);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+									printf("\n\nLleva en su cesta: \n\n\t\t%d camiseta/s \n\t\t%d pantal\242n/es  \n\t\t%d sudadera/s.", w0, w1, w2);
 								
 									ticket+=precio*cantidad;
 									printf ("\n\nTotal de la cesta:  %.2f$", ticket);
@@ -419,9 +467,13 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 								else if (talla=='m' || talla == 'M')
 								{
 									if (v[nn].m == 0)
+									{
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 									printf ("\nNo quedan prendas de esta talla.");
+									}
 									else
 									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 										printf ("\n\250Cu\240ntas unidades desea llevar?\t\t");
 										do
 										{								
@@ -430,7 +482,10 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 										}while (cantidad<=0);
 									
 									if (v[nn].m-cantidad<0)
+									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 										printf ("\nNo disponemos de esa cantidad de prendas.");
+									}
 									else
 									{
 										
@@ -442,8 +497,10 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (w[nn].m==1)
 									{
 										if (co=='p'|| co=='P')
+										{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);	
 										printf("\nHa elegido %d pantal\242n de talla %c.", w[nn].m, talla);
-										else
+										}else
 										printf("\nHa elegido %d %s de talla %c.", w[nn].m, pd, talla);
 									}
 									
@@ -460,7 +517,8 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									w0=w[0].s+w[0].m+w[0].l;
 									w1=w[1].s+w[1].m+w[1].l;
 									w2=w[2].s+w[2].m+w[2].l;
-									printf("\n\nLleva en su cesta: \n\t%d camiseta/s \n\t%d pantal\242n/es  \n\t%d sudadera/s.", w0, w1, w2);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+									printf("\n\nLleva en su cesta: \n\n\t\t%d camiseta/s \n\t\t%d pantal\242n/es  \n\t\t%d sudadera/s.", w0, w1, w2);
 								
 									ticket+=precio*cantidad;
 									printf ("\n\nTotal de la cesta:  %.2f$", ticket);
@@ -471,9 +529,12 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 								else if (talla=='l' || talla == 'L')
 								{
 				 						if (v[nn].l == 0)
+				 						{
+										 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 										printf ("\nNo quedan prendas de esta talla.");
-									else
+									}else
 									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 										printf ("\n\250Cu\240ntas unidades desea llevar?\t\t");
 										do
 										{									
@@ -482,8 +543,10 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 										}while (cantidad<=0);
 									
 									if (v[nn].l-cantidad<0)
+									{
+										SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 										printf ("\nNo disponemos de esa cantidad de prendas.");
-									else
+									}else
 									{
 										
 									w[nn].l+=cantidad;
@@ -494,9 +557,11 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									if (w[nn].l==1)
 									{
 										if (co=='p'|| co=='P')
-										printf("\nHa elegido %d pantal\242n de talla %c.", w[nn].l, talla);
-										else
-										printf("\nHa elegido %d %s de talla %c.", w[nn].l, pd, talla);
+										{
+											SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+											printf("\nHa elegido %d pantal\242n de talla %c.", w[nn].l, talla);
+										}else
+											printf("\nHa elegido %d %s de talla %c.", w[nn].l, pd, talla);
 									}
 									
 									else
@@ -512,7 +577,8 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									w0=w[0].s+w[0].m+w[0].l;
 									w1=w[1].s+w[1].m+w[1].l;
 									w2=w[2].s+w[2].m+w[2].l;
-									printf("\n\nLleva en su cesta: \n\t%d camiseta/s \n\t%d pantal\242n/es  \n\t%d sudadera/s.", w0, w1, w2);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+									printf("\n\nLleva en su cesta: \n\n\t\t%d camiseta/s \n\t\t%d pantal\242n/es  \n\t\t%d sudadera/s.", w0, w1, w2);
 								
 									ticket+=precio*cantidad;
 									printf ("\n\nTotal de la cesta:  %.2f$", ticket);
@@ -521,16 +587,22 @@ printf ("\n\n\250Qu\202 desea hacer en nuestra tienda?\n\n");
 									}
 								}
 								else
+								{
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 									printf ("Talla incorrecta.");	
+								}
 						
 						
 							}
 							else
-							puts ("\n Opci\242n err\242nea.");		
+							{
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);	
+								puts ("\n Opci\242n err\242nea.");	
+							}
 				
 					
 				
-				
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 				printf ("\n\n\250Desea coger otro art\241culo?\n");
 				scanf ("%c", &mascom);
 				fflush (stdin);				
@@ -543,18 +615,19 @@ free (pd);
 					
 if (ticket!=0)
 {
-		
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
 				printf ("\nCESTA DE LA COMPRA:\n");					
-					
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 					ticketfinal(w0, w1, w2, camiseta, pantalon, sudadera);
-					
 					ivas=ticket*iva;
 					printf ("\nIVA(21%%):\t\t\t    +%.2f$",ivas);		
 					ticket=ticket+ticket*iva;
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 					printf ("\n\nTOTAL:\t\t\t\t%.2f$", ticket);
 					
 
 //SOCIO
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 printf ("\n\n\250Eres socio de la tienda? S/N\n");
 scanf ("%c", &socio);	
 fflush (stdin);		
@@ -619,8 +692,10 @@ switch (socio)
 										
 								
 								if (annadir ==0)
-								{				
-								printf("\nEl usuario o la contraseña es incorrecta.");				
+								{
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);				
+								printf("\nEl usuario o la contraseña es incorrecta.");
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);				
 								printf("\n\250Desea intentarlo otra vez?\n");							
 								scanf ("%c", &intento);
 								fflush (stdin);
@@ -695,7 +770,9 @@ switch (socio)
 								
 								if (anadir !=0)
 								{
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 								printf("\nLo sentimos pero ya existe ese socio.");
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 								printf("\n\250Desea intentarlo otra vez?\n");
 								scanf ("%c", &intento);
 								fflush (stdin);
@@ -736,6 +813,7 @@ guardarsocios(dimension, u);
 		
 		
 	default:
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 			puts ("\n Opci\242n err\242nea.");
 }
 
@@ -743,8 +821,14 @@ guardarsocios(dimension, u);
 					//Forma de pago
 					
 					printf("\n\n\n\250C\242mo desea pagar?\n");
-					printf("\tE- En efectivo\n");
-					printf("\tT- Con tarjeta de cr\202dito\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+					printf("\n\tE- ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+					printf("En efectivo\n");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+					printf("\n\tT- ");
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+					printf("Con tarjeta de cr\202dito\n");
 				
 				
 				
@@ -755,8 +839,10 @@ guardarsocios(dimension, u);
 					fflush (stdin);
 					
 					if (pago != 'E'&& pago != 'e' && pago != 'T' && pago != 't')
-					{					
+					{	
+						SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);			
 						printf ("\nOpci\242n incorrecta.");
+						SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 						printf ("\nIntentelo otra vez.\n");
 					}
 					
@@ -769,6 +855,7 @@ guardarsocios(dimension, u);
 								if(ticket>dinero)
 								{
 									printf ("\nLleva usted %.2f$", dinero);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 									printf ("\nLo sentimos pero no puede llevarse la/s prenda/s.");
 											for (i=0; i<A; i++)
 											{
@@ -781,8 +868,9 @@ guardarsocios(dimension, u);
 								else
 								{
 									dinero-=ticket;
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
 									printf ("\nAhora tienes %.2f$ - %.2f$ = %.2f$ en efectivo.", dinero+ticket, ticket, dinero);
-									
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 									printf ("\n\255Tenga un buen d\241a!");
 									
 								}
@@ -791,18 +879,22 @@ guardarsocios(dimension, u);
 							case 'T':
 							case 't':
 								printf ("\nHa introducido su tarjeta, ahora teclee su n\243mero secreto:");
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 								printf ("\nAseg\243rese de que nadie mire su n\243mero secreto.");
 								
 								do{
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 								printf ("\nRecuerde que el n\243mero debe tener cuatro cifras.\n");
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);
 								scanf ("%d", &pin);
 								fflush (stdin);
 								}while (pin <= 999 || pin >= 10000);
-									
+								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);	
 								printf ("\n\255Tenga un buen d\241a!");
 								break;
 								
 							default:
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 							puts ("\n Opci\242n err\242nea.");	
 						}										
 						
@@ -812,6 +904,7 @@ guardarsocios(dimension, u);
 else
 {
 	printf("\n\nSu compra es 0$");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
 	printf("\n\nEsperamos volver a verle pronto.");
 }
 				break;
@@ -823,6 +916,7 @@ else
 		
 		
 		default:
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 			puts ("\n Opci\242n err\242nea.");
 	}
 	
@@ -830,6 +924,7 @@ else
 //No tiene sentido pedir si quieres realizar otra operacion si ya has dicho que quieres salir de la tienda	
 if (opcion != 's' && opcion != 'S')
 {
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 printf ("\n\n\250Desea realizar otra operaci\242n en la tienda?\n");
 scanf ("%c", &masmas);
 fflush (stdin);	
@@ -850,15 +945,17 @@ if(volver== 'n' || volver=='N')
 	
 	printf("\n\nValore su experiencia en nuestra tienda.");
 	
-			printf ("\nDebe ser un n\243mero del 1 al 10.\n");
+			printf ("\n(Debe ser un n\243mero del 1 al 10)\n");
 		
 			scanf ("%f",&valoracion);
 			fflush (stdin);
 
 		
 	if (valoracion<0)
-		printf ("\nNo aceptamos cr\241ticas negativas.\n");
-	else if (valoracion<5)
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
+		printf ("\nNo aceptamos cr\241ticas negativas :( ).\n");
+	}else if (valoracion<5)
 		printf ("\nGracias por su valoraci\242n. Intentaremos mejorar.\n");	
 	else if (valoracion<9)
 		printf ("\nGracias por su valoraci\242n.\n");
@@ -882,43 +979,48 @@ if(volver== 'n' || volver=='N')
 void banner()
 {
 //Variables para el Banner	
-char z1[]= "             XXXXX  XXXXX   XXXXX   XXXXX   XXXXX";
-char z2[]= "                X   X   X   X   X   X   X   X   X";
-char z3[]= "               X    XXXXX   XXXXX   XXXXX   XXXXX";
-char z4[]= "              X     X   X   X  X    X  X    X   X";
-char z5[]= "             XXXX   X   X   X   X   X   X   X   X";
+char z1[]= "             XXXXX  XXXXX   XXXXX   XXXXX   XXXXX		";
+char z2[]= "                X   X   X   X   X   X   X   X   X		";
+char z3[]= "               X    XXXXX   XXXXX   XXXXX   XXXXX		";
+char z4[]= "              X     X   X   X  X    X  X    X   X		";
+char z5[]= "             XXXX   X   X   X   X   X   X   X   X		";
 	
 int longitud;
 	int b;
 	
 
-	
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
 	printf ("\n\n BIENVENIDO A:\n\n\n");
 	
 //Banner
 	longitud= strlen(z1);
 						for (b=0;b<longitud;b++)
 						{
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),63);
 							printf("%c", z1[b]);
 						}
 						printf("\n");
 						for (b=0;b<longitud;b++)
 						{
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),63);
 							printf("%c", z2[b]);
 						}
 						printf("\n");
 						for (b=0;b<longitud;b++)
 						{
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),63);
 							printf("%c", z3[b]);
 						}
 						printf("\n");
 						for (b=0;b<longitud;b++)
 						{
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),63);
 							printf("%c", z4[b]);
 						}
 						printf("\n");
 						for (b=0;b<longitud;b++)
 						{
+							SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),63);
 							printf("%c", z5[b]);
 						}
 						printf("  S.A");
@@ -939,12 +1041,13 @@ void ticketfinal(int g0, int g1, int g2, float x, float y, float z)
 void descuentos(int f0, int f1, int f2, float x, float y, float z, float a, float b, float c)
 {
 printf ("\n\n\n\nSe le ha aplicado un descuento del 15%%:");
-									printf ("\nSu ticket es ahora de:");
+									printf ("\nCESTA DE LA COMPRA:");
 					
 									ticketfinal(f0, f1, f2, x, y, z);
 									
 									printf ("\nIVA(21%%):\t\t\t    +%.2f$", a);			
 									printf ("\nDescuento:\t\t\t    -%.2f$", c*b);
+									SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);
 									printf ("\n\nTOTAL:\t\t\t\t    %.2f$", c-c*b);
 }
 
@@ -952,9 +1055,19 @@ printf ("\n\n\n\nSe le ha aplicado un descuento del 15%%:");
 char opciones()
 {
 	char op;
-				printf ("\tC - Camiseta (9.99$)\n");
-				printf ("\tP - Pantal\242n (24.99$)\n");
-				printf ("\tS - Sudadera (29.99$)\n");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+				printf ("\tC - ");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+				printf ("Camiseta (9.99$)\n\n");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+				printf ("\tP - ");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+				printf ("Pantal\242n (24.99$)\n\n");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+				printf ("\tS - ");
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+				printf ("Sudadera (29.99$)\n\n");
+				
 				scanf ("%c", &op);
 				fflush (stdin);	
 	return op;

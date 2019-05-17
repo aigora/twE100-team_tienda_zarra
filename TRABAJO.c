@@ -1,6 +1,6 @@
 // Tienda de ropa online.
-// Annia Pocomucha García	54
-// Yaiza Martín Cabrerizo	54283
+// Annia Pocomucha GarcÃ­a	54162
+// Yaiza MartÃ­n Cabrerizo	54283
 
 
 #include <stdio.h>
@@ -63,7 +63,7 @@ int main()
 	int x_entero;	//Para el dinero (dos cifras)
 	char opcion;	//opcion comprar o devolver
 	char volver;	//opcion volver a empezar
-	char masmas;	//opcion volver a empezar (pero no tienes que introducir el efectivo más veces)
+	char masmas;	//opcion volver a empezar (pero no tienes que introducir el efectivo mÃ¡s veces)
 	char de; 		//opcion de devolucion (camiseta o pantalon o sudadera)
 	char masde;		//opcion de devolver mas cosas
 	char co;		//opcion de comprar (camiseta o pantalon o sudadera)
@@ -84,12 +84,12 @@ int main()
 	char nuevosocio; //Querer ser socio o no
 	int j;			//Indice para leer socios
 	int dimension;	//Leer la cantidad de socios
-	int dimen;		//Indica a la memoria dinamica el tamaño del vector
+	int dimen;		//Indica a la memoria dinamica el tamaÃ±o del vector
 	int orden;		//Para comparar los socios con los socios nuevos si son iguales
 	int a;			//Indice para recorrer los socios y comparar
 	int anadir;		//Si es ==0 no hay socios repetidos
 	int annadir;
-	char intento;	//Si al añadir socio da error, intentarlo otra vez
+	char intento;	//Si al aÃ±adir socio da error, intentarlo otra vez
 	float descuento=0.15;
 	float iva=0.21;
 	float ivas;
@@ -641,7 +641,7 @@ switch (socio)
 //CODIGO PARA LEER LOS SOCIOS
 		cargardimension(&dimension);
 		
-		//Se pone el tamaño del vector
+		//Se pone el tamaÃ±o del vector
 		u=malloc(dimension*sizeof(socia));
 					
 		cargarsocios(dimension, u);								
@@ -694,7 +694,7 @@ switch (socio)
 								if (annadir ==0)
 								{
 								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);				
-								printf("\nEl usuario o la contraseña es incorrecta.");
+								printf("\nEl usuario o la contraseÃ±a es incorrecta.");
 								SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);				
 								printf("\n\250Desea intentarlo otra vez?\n");							
 								scanf ("%c", &intento);
@@ -728,7 +728,7 @@ switch (socio)
 														
 									cargardimension(&dimension);
 									
-									//Se pone el tamaño del vector
+									//Se pone el tamaÃ±o del vector
 									dimen=dimension+1;
 									u=malloc(dimen*sizeof(socia));	
 										
@@ -793,7 +793,7 @@ switch (socio)
 									descuentos(w0, w1, w2, camiseta, pantalon, sudadera, ivas, descuento, ticket);
 	
 									
-//Guardar socios añadidos									
+//Guardar socios aÃ±adidos									
 guardarsocios(dimension, u);
 						
 								}		
